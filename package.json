@@ -1,0 +1,43 @@
+{
+  "name": "skadiux",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "tokens": "style-dictionary build -c tokens/config.json && copyfiles -f build/scss/_variables.scss dist/styles",
+    "lib:build": "copyfiles -f build/_variables.scss dist/styles && copyfiles -f src/assets/styles/* dist/styles && cross-env NODE_ENV=production rollup --config build/rollup.config.js --bundleConfigAsCjs",
+    "lib:publish": "lerna publish --force-publish * --yes"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.24",
+    "@storybook/addon-interactions": "^7.0.24",
+    "@storybook/addon-links": "^7.0.24",
+    "@storybook/blocks": "^7.0.24",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/vue3": "^7.0.24",
+    "@storybook/vue3-vite": "^7.0.24",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "lerna": "^7.1.1",
+    "postcss": "^8.4.24",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-vue": "^6.0.0",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "storybook": "^7.0.24",
+    "style-dictionary": "^3.8.0",
+    "vite": "^4.3.9"
+  }
+}
